@@ -1,0 +1,6 @@
+site_name: URJC-DeepRacer
+nav:
+  - Inicio: index.md
+  - Módulo 1: modulo1.md
+theme:
+  name: material  # o 'readthedocs' si prefieres
