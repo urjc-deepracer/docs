@@ -1,6 +1,9 @@
 site_name: URJC-DeepRacer
 nav:
-  - Inicio: index.md
-  - Módulo 1: modulo1.md
+  - Index: index.md
+  - Racetrack Creation: racetrackcreation.md
+  - Include Racetrack in a CARLA Map: includeracetrackcarla.md
+  - Create DeepRacer in Blender: createdeepracerinblender.md
+  - Import Deepracer to Carla: importdeepracercarla.md
 theme:
   name: material  # o 'readthedocs' si prefieres
