@@ -9,20 +9,22 @@
       
       
       
+        <link rel="prev" href="../racetrackcreation/">
       
-        <link rel="next" href="racetrackcreation/">
+      
+        <link rel="next" href="../createdeepracerinblender/">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
     
     
       
-        <title>URJC-DeepRacer</title>
+        <title>Include Racetrack in a CARLA Map - URJC-DeepRacer</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.2afb09e1.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
       
       
 
@@ -41,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deepracer-wiki" class="md-skip">
+        <a href="#how-to-manually-include-the-racetrack-in-any-carla-map" class="md-skip">
           Skip to content
         </a>
       
@@ -76,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="URJC-DeepRacer" class="md-header__button md-logo" aria-label="URJC-DeepRacer" data-md-component="logo">
+    <a href=".." title="URJC-DeepRacer" class="md-header__button md-logo" aria-label="URJC-DeepRacer" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Index
+              Include Racetrack in a CARLA Map
             
           </span>
         </div>
@@ -174,7 +176,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="URJC-DeepRacer" class="md-nav__button md-logo" aria-label="URJC-DeepRacer" data-md-component="logo">
+    <a href=".." title="URJC-DeepRacer" class="md-nav__button md-logo" aria-label="URJC-DeepRacer" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -189,32 +191,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Index
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
         
   
   
@@ -225,35 +205,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#documentation-links" class="md-nav__link">
-    <span class="md-ellipsis">
-      📄 Documentation links:
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -265,7 +216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="racetrackcreation/" class="md-nav__link">
+      <a href="../racetrackcreation/" class="md-nav__link">
         
   
   
@@ -284,10 +235,19 @@
       
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="includeracetrackcarla/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -298,6 +258,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -309,7 +270,7 @@
   
   
     <li class="md-nav__item">
-      <a href="createdeepracerinblender/" class="md-nav__link">
+      <a href="../createdeepracerinblender/" class="md-nav__link">
         
   
   
@@ -331,7 +292,7 @@
   
   
     <li class="md-nav__item">
-      <a href="importdeepracercarla/" class="md-nav__link">
+      <a href="../importdeepracercarla/" class="md-nav__link">
         
   
   
@@ -366,23 +327,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#documentation-links" class="md-nav__link">
-    <span class="md-ellipsis">
-      📄 Documentation links:
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -397,14 +341,50 @@
 
 
 
-<h1 id="deepracer-wiki">Deepracer wiki</h1>
-<h3 id="documentation-links">📄 Documentation links:</h3>
+<h1 id="how-to-manually-include-the-racetrack-in-any-carla-map">How to manually include the Racetrack in any CARLA map</h1>
+<p>CARLA requires map geometry information in <code>.fbx</code> format and OpenDRIVE information in <code>.xodr</code> format.</p>
+<p>There are several ways to import your map into CARLA. However, we will not need to create the whole map from scratch. We will be using an already made map and just adding the track mesh on top of its surface.</p>
+<p>You will actually use an already created map with its own assets, objects and other configurations. And just add the meshes of the road we have just created. You can take this racetrack fbx:</p>
+<p><a href="https://github.com/RoboticsLabURJC/2025-tfg-sergio-robledo/blob/main/3dmodels/unreal/Package01/RaceTrack/RaceTrack.fbx" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+  Fbx link
+</a></p>
+<p>Open Carla:</p>
+<pre><code class="language-bash">cd carla
+make launch
+</code></pre>
+<p>In the <em>Content Browser</em> of the editor, navigate to <code>Content/Carla/Maps/BaseMap</code> and duplicate the map by right clicking on it and duplicating it, the, rename it to (.e.g)  RaceTrack.</p>
+<p><img alt="1" src="../images/10.png" /></p>
+<p>Create a new folder with the name of your map package in the <code>Content/Carla/Maps</code> directory and save the duplicated map there.(e.g /RaceTrack).</p>
+<p>In the <em>Content Browser</em> of the Unreal Engine editor, navigate to that folder you have just created. Right click in the grey area and select <code>Import to /Game/Carla/Maps...</code> under the heading <em>Import Asset</em>.</p>
+<p><img alt="1" src="../images/11.png" /></p>
+<p>In the configuration window that pops up, make sure:</p>
+<p>These options are unchecked:</p>
 <ul>
-<li><a href="racetrackcreation/">Racetrack Creation</a></li>
-<li><a href="includeracetrackcarla/">Include Racetrack in a CARLA Map</a></li>
-<li><a href="createdeepracerinblender/">Create DeepRacer</a></li>
-<li><a href="importdeepracercarla/">Import Deepracer to Carla</a></li>
+<li>Auto Generate Collision</li>
+<li>Combine Meshes</li>
+<li>Force Front xAxis</li>
 </ul>
+<p>In the following drop downs, the corresponding options are selected:</p>
+<ul>
+<li>Normal Import Method -Import Normals</li>
+<li>Material Import Method - Create New Materials</li>
+</ul>
+<p>These options are checked:</p>
+<ul>
+<li>Convert Scene Unit</li>
+<li>Import Textures</li>
+</ul>
+<p><img alt="1" src="../images/12.png" /></p>
+<p>If the Import textures box cannot be checked,  just with “Create New Materials” will be alright.</p>
+<p>Click <code>Import</code>.</p>
+<p>The racetrack meshes will appear in the <em>Content Browser</em>. Select the meshes and drag them into the scene. Before that, make sure you have an appropriate ground to display the racetrack on. You can drag into the scene any  static mesh that can work as a suitable ground.</p>
+<p>Now it will look like this:</p>
+<p><img alt="1" src="../images/13.png" /></p>
+<p>Scale and resize the meshes wherever you want using the Transform menu on the right sidebar:</p>
+<p><img alt="1" src="../images/14.png" /></p>
+<p>Make sure to move the whole racetrack 0.01 up in Z axis so that it becomes visible.</p>
+<p>Instead of BaseMap you can either choose other map and delete everything on it that is not really necessary such as trees, barriers, bushes, wires, signals… and then drag the racetrack inside</p>
+<p><img alt="1" src="../images/15.png" /></p>
 
 
 
@@ -453,10 +433,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": [], "search": "assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="assets/javascripts/bundle.c8b220af.min.js"></script>
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
       
     
   </body>
