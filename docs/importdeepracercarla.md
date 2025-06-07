@@ -3,24 +3,42 @@
 
 **Youtube videos**
 
-These videos summarize this webpage:
+These videos summarize this webpage. Part 1 summarizes how to import the Deepracer to Carla. Part 2 explains few settings to complete the implementation.
 
 ## English
 
+Part 1:
 <iframe width="560" height="315" 
 src="https://www.youtube.com/embed/j3b0LqBg0lU" 
 frameborder="0" allowfullscreen></iframe>
 
+Part 2:
+<iframe width="560" height="315" 
+src="https://www.youtube.com/embed/1S2XwpWrW6A" 
+frameborder="0" allowfullscreen></iframe>
+
 ## Español
 
+Parte 1:
 <iframe width="560" height="315" 
 src="https://www.youtube.com/embed/5odEJVBtP20" 
 frameborder="0" allowfullscreen></iframe>
 
+Parte 2:
+<iframe width="560" height="315" 
+src="https://www.youtube.com/embed/xO_TxTSLdhU" 
+frameborder="0" allowfullscreen></iframe>
+
 ## 中文
 
+第1部分:
 <iframe width="560" height="315" 
 src="https://www.youtube.com/embed/svZVVhSl0ng" 
+frameborder="0" allowfullscreen></iframe>
+
+第2部分:
+<iframe width="560" height="315" 
+src="https://www.youtube.com/embed/OMnIWFAhVfA" 
 frameborder="0" allowfullscreen></iframe>
 
 
