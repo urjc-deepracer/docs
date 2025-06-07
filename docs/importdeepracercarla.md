@@ -3,7 +3,7 @@
 
 **Youtube videos**
 
-This video summarizes this webpage:
+These videos summarize this webpage:
 
 ## English
 
@@ -127,11 +127,24 @@ from BP_Lincoln_RRW to BP_Deepracer_RRW
 Open and change these settings on each of those four Blueprints:
 
 - Change the mesh in Collision mesh (in Shape) to `Wheel_Shape`.
-- Set shape radius to 6 and shape width to 6 (make sure to measure it in Blender) .The Z offset should be 0. Mass is 0.04 kg
+- Set shape radius to 3.75 and shape width to 4.0 (make sure to measure it in Blender) .The Z offset should be 0. Mass is 0.04 kg
 - In the `Tire Config` section of the blueprint, use the `CommonTireConfig`.
 - Compile and save the blueprint.
 - `Affected by handbrake` should be checked for both rear wheels(in RLW and RRW Blueprints).`Steer angle` should be set to the maximum intended steer angle(30) for both front wheels and set to zero for both rear wheels.
 - It is **REALLY IMPORTANT to make sure that CommonTireConfig tires  are used, before continuing to the next step, double check for each wheel blueprint that this tire is set. If not, and the tire is not defined, much later, Unreal will crash and shut down without an apparent reason. This is why!!!**
+
+- For the suspension values, both front wheels must have these settings: 
+  - Suspension force offset: 0.0
+  - Suspension max raise: 0.1
+  - Suspension max drop: 0.1
+  - Suspension natural frecuency: 25.0
+  - Suspension damping ratio: 1.0
+- Both rear wheels must have these settings: 
+  - Suspension force offset: 0.0
+  - Suspension max raise: 1.5
+  - Suspension max drop: 2.0
+  - Suspension natural frecuency: 25.0
+  - Suspension damping ratio: 1.0
 
 Right click in the content browser directory (where your deepracer wheels blueprints are) and chose `Blueprint Class`. Search in the `All Classes` menu for `BaseVehiclePawn` and choose this class. Name the blueprint as “BP_Deepracer” and open it. 
 
@@ -141,19 +154,26 @@ In `Anim Class` search for the animation corresponding to the deepracer that y
 
 This next step is **REALLY IMPORTANT**, as it is not explained in any website tutorial and it is fundamental.
 
-Type “center” in the Search Details browser and search for Center of Mass Offset. Change it to x=0.0, y=0.0 and z=0.0, if not, the center mass will be below the ground and the car will be unable to move properly, as a massive “Force” will be pulling the Deepracer down.
+Type “center” in the Search Details browser and search for Center of Mass Offset. Change it to x=0.0, y=0.0 and z=-0.1, if not, the center mass will be below the ground and the car will be unable to move properly, as a massive “Force” will be pulling the Deepracer down. That z = -0.1 allows us to control the car much easier, as the center off mass is lowered a tiny bit and closer to the ground, the deepracer will be more stabilized. 
 
 Next, select `Vehicle Movement` in the `Components` menu of the blueprint class and in the right `Details` menu navigate to the `Vehicle Setup` section. 
 
 Change the vehicle mass to 1.23 kg.
 
-Now for each wheel class, find the wheel blueprint that you previously copied and renamed for the `Wheel Class` attribute.Make sure that each wheel class name corresponds to the bone name. For example :
+Now in Wheel Setups, for each wheel class, find the wheel blueprint that you previously copied and renamed for the `Wheel Class` attribute.Make sure that each wheel class name corresponds to the bone name. For example :
 
 In wheel setups, open 0, in Wheel Class, select BP_Deepracer_FLW as it corresponds to the bone named as Wheel_Front_Left.
 
-Do the same for each wheel (menus 1, 2 and 3 in Wheel Setups). Compile and save.
+Do the same for each wheel (1, 2 and 3 in Wheel Setups). 
 
 ![1](images/38.png)
+
+
+Now search for Mechanical Setup->Transimssion Setup. Uncheck Automatic transmission, set gear switch time to 0.5, final ratio to 4.0. 
+In the Gear Setup settings, delete all gears except for one: Gear 1 and set that Gear1 Gear Ratio to 2.0 and the ReverseGearRatio to -4.0. Clutch strength has to be 10. Compile and save.
+
+
+![1](images/gear.png)
 
 Last step is setting up the link to this blueprint. 
 
@@ -198,3 +218,9 @@ If Unreal crashes, it means that there is something missing and Unreal cannot lo
 These are all files needed for this process (no need to be all in the same place):
 
 ![1](images/41.png)
+
+Here is a video of the Deepracer once all these steps have been done:
+
+<iframe width="560" height="315" 
+src="https://www.youtube.com/embed/6da4URc5QoI" 
+frameborder="0" allowfullscreen></iframe>
