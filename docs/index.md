@@ -8,6 +8,7 @@
 - [Create DeepRacer](createdeepracerinblender.md)
 - [Import Deepracer to Carla](importdeepracercarla.md)
 
+- [Client Usage](clientusage.md)
 
 ## Introduction to Carla, Unreal Engine 4 Interface (Español)
 
