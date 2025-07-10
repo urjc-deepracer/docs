@@ -11,7 +11,7 @@
 ---
 
 <video width="1280" height="720" controls>
-  <source src="../images/manualcontrol.webp" type="video/webm">
+  <source src="../images/manualcontrol.mp4" type="video/mp4">
 </video>
 (Map modified as the ramp has been added)
 
@@ -327,35 +327,41 @@ camera_front = world.spawn_actor(camera_rgb_bp, transform_front, attach_to=vehic
 
 ## Client time vs real time
 
-Always run the simulator at fixed time-step when using the synchronous mode. 
+When using **synchronous mode** in CARLA, it is **essential to run the simulator with a fixed time-step**.  
+Otherwise, the physics engine will try to "catch up" for the time the client spent idle, leading to **unrealistic or inconsistent physics**.
 
-Otherwise the physics engine will try to recompute at once all the time spentwaiting for the client, this usually results in inconsistent or not very realistic physics.
+What is Fixed Time-Step?
 
-Fixed time-step The simulation runs as fast as possible, 
-simulating the same time increment on each step. To enable this mode set a fixed delta seconds in the world settings.
+In fixed time-step mode, the simulation advances by the same time increment on every `world.tick()` call, regardless of how fast your computer is.  
+To enable this, we must set:
 
-We want to prove that there is a difference between the time it takes for the computer to iterate, and the time it takes for the client to perform the callback function.
-
-
-We are going to set 20 FPS as an example for the callback.
-
-We will be using a callback function named: camera_callback(). And in our while loop, we will print
+```python
+settings.synchronous_mode = True
+settings.fixed_delta_seconds = 1.0 / 20.0  # 20 FPS
+world.apply_settings(settings)
 ```
-while running:
 
-    # Move on to the next iteration with world.tick()
+We want to observe the difference between:
+
+The real time it takes for the computer to perform one simulation step (world.tick()), and
+
+The callback frequency of the camera sensor (e.g. every time it sends an image frame).
+
+We define a camera_callback() function that prints the frame number and timestamp:
+
+```python
+def camera_callback(image):
+    print(f"[Frame {image.frame}] timestamp: {image.timestamp:.5f}")
+
+```
+Inside the main loop, we also measure and print the real time gap between ticks:
+
+```python
+while running:
     t1 = time.time()
     world.tick()
     t2 = time.time()
-    print(f"real time gap: {t2-t1}")
-```
-every time it iterates. 
- 
-We will write another print inside the callback. Just to check every time that callback is actually performing:
-
-```
-def camera_callback(image):
-    print(f"[Frame {image.frame}] timestamp: {image.timestamp:.5f}")
+    print(f"real time gap: {t2 - t1}")
 ```
 
 We get this output:
@@ -383,7 +389,19 @@ real time gap: 0.0029799938201904297
 
 ```
 
-It means that our computer is taking aproximately 0.0028 seconds to perform the 'tick()' and move on to the next iteration. However, the callback can be seen that is ptinted every 0.05 seconds, which means it is performing at those 20 FPS (1/20).
+**Interpretation**
+
+Real time gap: 0.0028 means that world.tick() is being executed quickly (~2.8 ms per step) (the computer is fast).
+
+The camera callback prints roughly every 0.05 seconds, confirming it operates at the expected 20 FPS (1 / 20 = 0.05s).
+
+This demonstrates that:
+
+The simulation time advances deterministically by 0.05s per tick.
+
+The real time your PC takes to simulate one frame can be much less than 0.05s.
+
+This difference is expected and is the advantage of running the simulator as fast as possible while maintaining consistent simulation timing.
 
 
 Here is the code to try this out: 
