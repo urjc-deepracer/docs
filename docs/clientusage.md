@@ -2,11 +2,11 @@
 
 ## Index:
 
-- [Connection with server](#Connection-with-server)
-- [Deepracer Camera settings](#Deepracer-camera-settings)
-- [Client time vs real time](#Client-time-vs-real-time)
-- [HSV Filter and mask segmentation](#HSV-Filter-and-mask-segmentation)
-- [Generate Dataset](#Generate-dataset)
+- [Connection with server](#connection-with-server)
+- [Deepracer Camera settings](#deepracer-camera-settings)
+- [Client time vs real time](#client-time-vs-real-time)
+- [HSV Filter and mask segmentation](#hsv-filter-and-mask-segmentation)
+- [Generate Dataset](#generate-dataset)
 
 ---
 
@@ -493,4 +493,192 @@ vehicle.destroy()
 pygame.quit()
 ```
 
+## HSV Filter and mask segmentation
 
+![1](images/segmented.png)
+
+This section explains how the script processes RGB images from the front camera of the Deepracer in CARLA to create **semantic segmentation masks** based on color, using the HSV color space.
+We want to:
+- Detect **white** and **yellow** lane markings on the road.
+- Classify each pixel into a semantic class:
+  - `0`: background (black)
+  - `1`: white
+  - `2`: yellow
+- Save a colorized mask and use it for training or control logic.
+
+```python
+hsv = cv2.cvtColor(rgb, cv2.COLOR_RGB2HSV)
+```
+
+The image is converted from RGB to HSV. HSV is preferred for color segmentation because this makes it easier to separate colors like white and yellow.
+
+
+### Create Color Masks:
+
+**Yellow Mask**
+```python
+lower_yellow = np.array([18, 50, 150])
+upper_yellow = np.array([40, 255, 255])
+mask_yellow = cv2.inRange(hsv, lower_yellow, upper_yellow)
+```
+
+**White Mask**
+
+```python
+lower_white = np.array([0, 0, 200])
+upper_white = np.array([180, 30, 255])
+mask_white = cv2.inRange(hsv, lower_white, upper_white)
+```
+
+**Create Semantic Class Mask**
+
+Initialize a blank mask.
+
+Pixels detected as white are labeled as 1.
+
+Pixels detected as yellow are labeled as 2.
+
+```python
+mask_class = np.zeros_like(mask_white, dtype=np.uint8)
+mask_class[mask_white > 0] = 1
+mask_class[mask_yellow > 0] = 2
+```
+
+### Convert Class Mask to RGB for Visualization
+
+```python
+mask_rgb = np.zeros_like(rgb)
+mask_rgb[mask_class == 1] = [255, 255, 255]  # white
+mask_rgb[mask_class == 2] = [255, 255, 0]    # yellow
+
+```
+
+This gives a visually interpretable image where:
+
+White areas are actual white ([255,255,255])
+
+Yellow areas are yellow ([255,255,0])
+
+Background remains black ([0,0,0])
+
+This mask_rgb is used for display (cv2.imshow) and for dataset generation (cv2.imwrite).
+
+
+---
+
+## Generate Dataset
+
+
+To do so, we launch a script that creates a unique dataset folder based on the current timestamp:
+
+```python
+currtime = str(int(time.time() * 1000))
+DATASET_ID = "Deepracer_BaseMap_" + currtime
+```
+
+```pgsql
+dataset/
+└── Deepracer_BaseMap_<timestamp>/
+    ├── rgb/        ← RGB images from the camera
+    ├── masks/      ← Mask images with segmented classes
+    └── dataset.csv ← Metadata log
+```
+
+Each frame is processed and saved using the keep_data() function. 
+
+- rgb_img is saved as-is.
+
+- mask_class_img is a colorized version of the class mask:
+
+    - Pixels labeled 1 (white) become [255, 255, 255]
+
+    - Pixels labeled 2 (yellow) become [255, 255, 0]
+
+    - Background stays black
+
+```python
+RGB_DIR = os.path.join(DATASET_ID, "rgb")
+MASK_DIR = os.path.join(DATASET_ID, "masks")
+CSV_PATH = os.path.join(DATASET_ID, f"dataset.csv")
+
+def keep_data(timestamp, rgb_img, mask_class_img, accel, steer, brake, speed, heading):
+    ...
+    cv2.imwrite(os.path.join(RGB_DIR, rgb_name), rgb_img)
+    cv2.imwrite(os.path.join(MASK_DIR, mask_name), cv2.cvtColor(mask_class_img, cv2.COLOR_RGB2BGR))
+
+```
+Each image is associated with a row in the CSV file:
+
+```python
+writer.writerow([rgb_path_rel, mask_path_rel, timestamp, accel, steer, brake, speed, heading])
+
+```
+- rgb_path	Relative path to the RGB image
+- mask_path	Relative path to the mask image
+- timestamp	Capture time in ms
+- throttle	Throttle value at capture
+- steer	Steer value at capture
+- brake	Brake value at capture
+- speed	Vehicle speed in m/s
+- heading	Heading angle in degrees
+
+
+### Using a Mutex (Lock) for Safe Image Access
+
+This script uses a **Python mutex (`Lock`)** to ensure safe access to the camera image data, especially in a **multithreaded context** involving sensor callbacks from CARLA.
+
+### Why Use a Mutex?
+
+CARLA sensors (like the RGB camera) call a **callback function in a separate thread** every time a new image arrives.  
+Meanwhile, the main loop (running in another thread) may try to access that image.
+
+Without protection, this leads to **race conditions** where:
+- Data may be read while it's being written
+- The program may crash or behave inconsistently
+- You may process outdated or corrupted frames
+
+
+### Lock Setup
+
+```python
+from threading import Lock
+from collections import deque
+
+image_queue = deque(maxlen=1)
+queue_lock = Lock()
+```
+
+- image_queue: stores only the latest image
+- queue_lock: a mutex to synchronize access to the queue
+
+
+Every time a new image is received, the mutex is acquired with with queue_lock
+The queue is cleared (to keep only the latest image)
+The new image is appended safely.
+
+```python
+def camera_callback(image):
+    with queue_lock:
+        image_queue.clear()
+        image_queue.append((int(time.time() * 1000), image))
+```
+
+### Safe Access in the Main Loop
+
+The main loop locks the queue before accessing it
+If the image is too old (over 150 ms), it is discarded
+This avoids race conditions with the callback
+
+```python
+with queue_lock:
+    if image_queue:
+        img_timestamp, image = image_queue[0]
+        age = int(time.time() * 1000) - img_timestamp
+        if age <= MAX_IMAGE_AGE_MS:
+            image = image_queue.popleft()[1]
+        else:
+            image = None  # Image too old, discard
+    else:
+        image = None
+
+```
