@@ -68,3 +68,19 @@ Make sure to move the whole racetrack 0.01 up in Z axis so that it becomes visib
 Instead of BaseMap you can either choose other map and delete everything on it that is not really necessary such as trees, barriers, bushes, wires, signals… and then drag the racetrack inside
 
 ![1](images/15.png)
+
+As the racetrack gray color can sometimes interfere if we would like to divide the image into masks and separate them into white and yellow. We can change the track material. 
+
+![1](images/trackcolors.png)
+
+Click on each track part while pressing ctrl in either the visualizer or the World outliner at the top right. 
+
+You will be able to change the colors in the Details panel on the right, there you can see the three ones we are using. Element 0 representing the gray track, Element 1 the white borders and Element 2 the yellow middle line. Simply click on either label layout to change the color. To make it look black I have used an already existing material which is road_asphalt, the gray one which is imported once the track was imported, but you can create a new one manually and then select it in that same label. To create a new one, right click on the content browser and click on material.
+
+To change the gray color in road_asphalt, double click on that material and then double click on the param square to select any color you like.
+
+![1](images/graycol.png)
+
+![1](images/materialcolor.png)
+
+![1](images/gammacolors.png)
