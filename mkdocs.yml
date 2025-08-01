@@ -5,5 +5,6 @@ nav:
   - Include Racetrack in a CARLA Map: includeracetrackcarla.md
   - Create DeepRacer in Blender: createdeepracerinblender.md
   - Import Deepracer to Carla: importdeepracercarla.md
+  - Remote control Deepracer: remotecontrol.md
 theme:
   name: material  # o 'readthedocs' si prefieres
