@@ -1,5 +1,7 @@
 # Deepracer wiki
 
+![1](images/dr.jpg)
+
 **Welcome to the Deepracer wiki!**
 
 Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator.
@@ -41,9 +43,11 @@ How to **connect** a **remote** to drive the Deepracer (for testing or dataset g
 
 - [Remote control Deepracer](remotecontrol.md)
 
+
 <video width="1280" height="720" controls>
   <source src="../images/Remote.mp4" type="video/mp4">
 </video>
+
 
 ---
 

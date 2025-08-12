@@ -164,7 +164,16 @@ Open and change these settings on each of those four Blueprints:
   - Suspension natural frecuency: 25.0
   - Suspension damping ratio: 1.0
 
-Right click in the content browser directory (where your deepracer wheels blueprints are) and chose `Blueprint Class`. Search in the `All Classes` menu for `BaseVehiclePawn` and choose this class. Name the blueprint as “BP_Deepracer” and open it. 
+---
+
+[OPTIONAL]
+To make the car even more realistic, change the brake torque and hand brake torque values on each wheel BP to these ones:  
+
+![1](images/brakes.png)
+
+--- 
+
+Now right click in the content browser directory (where your deepracer wheels blueprints are) and chose `Blueprint Class`. Search in the `All Classes` menu for `BaseVehiclePawn` and choose this class. Name the blueprint as “BP_Deepracer” and open it. 
 
 Select `Mesh` in the `Components` tab on the left and then click on the vehicle mesh(search for the deepracer mesh) into the Mesh section on the right hand side.
 
