@@ -44,11 +44,6 @@ How to **connect** a **remote** to drive the Deepracer (for testing or dataset g
 - [Remote control Deepracer](remotecontrol.md)
 
 
-<video width="1280" height="720" controls>
-  <source src="../images/Remote.mp4" type="video/mp4">
-</video>
-
-
 ---
 
 In case you need help with the Unreal Engine 4 interface, here is a quick introduction guide:
