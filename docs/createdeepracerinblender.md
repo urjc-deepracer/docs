@@ -138,6 +138,14 @@ So that only armature and mesh are exported, axes are correctly set, as so the g
 
 A new fbx file will be created.
 
+The model we have crated can be found in here:
+
+<a href="
+https://github.com/urjc-deepracer/sim-veh-deepracer/blob/main/Blender_models/DeepRacer.blend" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+  Blender model
+</a>
+
+
 ---
 
 This video explains the whole process (apart from other configurations that won’t be needed now) much better:

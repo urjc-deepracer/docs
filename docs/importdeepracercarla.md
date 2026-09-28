@@ -46,7 +46,7 @@ frameborder="0" allowfullscreen></iframe>
 
 First of all, find the deepracer.fbx file you just exported from blender or just take this model:
 
-<a href="https://github.com/RoboticsLabURJC/2025-tfg-sergio-robledo/blob/main/3dmodels/blender/final_deepracer.fbx" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+<a href="https://github.com/urjc-deepracer/sim-veh-deepracer/blob/main/Carla_models/DeepRacer.fbx" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
   Fbx model link
 </a>
 

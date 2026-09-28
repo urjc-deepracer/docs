@@ -4,10 +4,10 @@ CARLA requires map geometry information in `.fbx` format and OpenDRIVE informati
 
 There are several ways to import your map into CARLA. However, we will not need to create the whole map from scratch. We will be using an already made map and just adding the track mesh on top of its surface.
 
-You will actually use an already created map with its own assets, objects and other configurations. And just add the meshes of the road we have just created. You can take this racetrack fbx:
+You will actually use an already created map with its own assets, objects and other configurations. And just add the meshes of the road we have just created. You can take these racetracks fbx:
 
 
-<a href="https://github.com/RoboticsLabURJC/2025-tfg-sergio-robledo/blob/main/3dmodels/unreal/Package01/RaceTrack/RaceTrack.fbx" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+<a href="https://github.com/urjc-deepracer/sim-carla-racing-tracks/tree/main/Carla_models" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
   Fbx link
 </a>
 

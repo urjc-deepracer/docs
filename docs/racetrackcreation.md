@@ -68,3 +68,11 @@ You can even check the OPENDrive file online to ensure it was created successful
 
 
 [Online OpenDRIVE Viewer](https://odrviewer.io/)
+
+
+All the Blender tracks we have created can be found in here:
+
+<a href="https://github.com/urjc-deepracer/sim-carla-racing-tracks/tree/main/Blender_models" target="_blank" style="font-weight:bold; color:#007acc; text-decoration:none;">
+  Blender Tracks
+</a>
+
