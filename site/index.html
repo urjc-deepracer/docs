@@ -203,24 +203,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Index
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="." class="md-nav__link md-nav__link--active">
         
   
@@ -237,86 +219,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start:
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Start:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prerequisites-and-dependencies-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Prerequisites and Dependencies Installation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-launch-the-map-and-deepracer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Launch the Map and Deepracer!
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#each-individual-part-documentation-links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📄 Each individual part documentation links:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#introduction-to-carla-unreal-engine-4-interface-espanol" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction to Carla, Unreal Engine 4 Interface (Español)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -477,75 +379,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#quick-start" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Quick Start:
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Quick Start:">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-prerequisites-and-dependencies-installation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Prerequisites and Dependencies Installation
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-launch-the-map-and-deepracer" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. Launch the Map and Deepracer!
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#each-individual-part-documentation-links" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📄 Each individual part documentation links:
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#introduction-to-carla-unreal-engine-4-interface-espanol" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Introduction to Carla, Unreal Engine 4 Interface (Español)
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -565,7 +398,7 @@
 <p><img alt="1" src="images/dr.jpg" /></p>
 <p><strong>Welcome to the wiki!</strong></p>
 <p>Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator (0.9.15 version).</p>
-<h2 id="quick-start">Quick Start:</h2>
+<h1 id="quick-start">Quick Start:</h1>
 <h3 id="1-prerequisites-and-dependencies-installation">1. Prerequisites and Dependencies Installation</h3>
 <p>To make the script and the simulator work, you need to prepare your environment with the following elements:</p>
 <ul>
@@ -592,7 +425,43 @@
 </code></pre>
 <p>You will be able to drive the car using the WASD keys </p>
 <hr />
-<h3 id="each-individual-part-documentation-links">📄 Each individual part documentation links:</h3>
+<h1 id="imitation-learning">Imitation learning</h1>
+<p>Here is a quick setup guide to start testing the Deepracer driving by itself!</p>
+<ul>
+<li><strong>Python Libraries:</strong> Install the required graphical and calculation dependencies by running the following command:</li>
+</ul>
+<pre><code class="language-bash">   pip install opencv-python torch torchvision pillow
+</code></pre>
+<ul>
+<li><strong>Environment settings</strong> </li>
+</ul>
+<p>1) Download the .pth file on <a href="https://github.com/urjc-deepracer/sim-carla-il-deepracer/releases/tag/1.0.0">this link</a></p>
+<p>2) Download these 3 files from <a href="./sample_scripts/">sample scripts</a>:
+- <a href="sample_scripts/run_autopilot_demo.py">run_autopilot_demo.py code</a>
+- <a href="sample_scripts/fancyvideocam.py">fancyvideocam.py code</a>
+- <a href="./sample_scripts/utils/pilotnet.py">pilotnet.py code</a></p>
+<p>3) All 4 downloaded files must be placed in the same directory </p>
+<p><strong>Run the autopilot</strong> </p>
+<p>First, launch the simulator: (Render off screen flag is used so that the window does not pop up)</p>
+<pre><code class="language-bash">  ./CarlaUE4.sh -RenderOffScreen
+</code></pre>
+<p><strong>Example1</strong></p>
+<ul>
+<li>Autopilot onboard camera:</li>
+</ul>
+<pre><code class="language-bash">python3 run_autopilot_demo.py
+</code></pre>
+<p><strong>Example2</strong></p>
+<ul>
+<li>Top-down view code. Mode can be changed between trail (red trail that follows the Deepracer) and heatmap. Each camera belongs to a different track top view.
+Cameras available from 1 to 5 and from 8 to 13.</li>
+</ul>
+<pre><code class="language-bash">python3 fancyvideocam.py --mode trail --cam 4
+</code></pre>
+<hr />
+<p>For further information, check the Imitation learning repository <a href="https://github.com/urjc-deepracer/sim-carla-il-deepracer">here</a>: https://github.com/urjc-deepracer/sim-carla-il-deepracer</p>
+<hr />
+<h3 id="each-individual-part-documentation-links">📄 Each individual part documentation links</h3>
 <p>In case you want to explore or modify any part or asset, here are the links to the different tutorials. They explain the creation an implementation of the Deepracer and the creation and implementation of the Racetracks.</p>
 <p>How to create the <strong>racetracks</strong> and import them:</p>
 <ul>

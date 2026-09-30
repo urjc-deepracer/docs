@@ -58,9 +58,12 @@ Here is a quick setup guide to start testing the Deepracer driving by itself!
 
 1) Download the .pth file on [this link](https://github.com/urjc-deepracer/sim-carla-il-deepracer/releases/tag/1.0.0)
 
-2) Download these 3 files from [sample scripts](./sample_scripts/):
+2) Download these 3 files from [sample scripts](https://github.com/urjc-deepracer/docs/tree/main/docs/sample_scripts):
+
 - [run_autopilot_demo.py code](./sample_scripts/run_autopilot_demo.py)
+
 - [fancyvideocam.py code](./sample_scripts/fancyvideocam.py)
+
 - [pilotnet.py code](./sample_scripts/utils/pilotnet.py)
 
 3) All 4 downloaded files must be placed in the same directory 
