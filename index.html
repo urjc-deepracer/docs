@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#deepracer-wiki" class="md-skip">
+        <a href="#deepracer-carla-simulator-wiki" class="md-skip">
           Skip to content
         </a>
       
@@ -254,13 +254,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#documentation-links" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📄 Documentation links:
+        Quick Start:
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Quick Start:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prerequisites-and-dependencies-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Prerequisites and Dependencies Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-launch-the-map-and-deepracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Launch the Map and Deepracer!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#each-individual-part-documentation-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📄 Each individual part documentation links:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -445,13 +484,52 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#documentation-links" class="md-nav__link">
+  <a href="#quick-start" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📄 Documentation links:
+        Quick Start:
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Quick Start:">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prerequisites-and-dependencies-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Prerequisites and Dependencies Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-launch-the-map-and-deepracer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Launch the Map and Deepracer!
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#each-individual-part-documentation-links" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📄 Each individual part documentation links:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -483,12 +561,39 @@
 
 
 
-<h1 id="deepracer-wiki">Deepracer wiki</h1>
+<h1 id="deepracer-carla-simulator-wiki">Deepracer Carla Simulator wiki</h1>
 <p><img alt="1" src="images/dr.jpg" /></p>
-<p><strong>Welcome to the Deepracer wiki!</strong></p>
-<p>Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator.</p>
-<h3 id="documentation-links">📄 Documentation links:</h3>
-<p>Here are the links to the different steps.</p>
+<p><strong>Welcome to the wiki!</strong></p>
+<p>Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator (0.9.15 version).</p>
+<h2 id="quick-start">Quick Start:</h2>
+<h3 id="1-prerequisites-and-dependencies-installation">1. Prerequisites and Dependencies Installation</h3>
+<p>To make the script and the simulator work, you need to prepare your environment with the following elements:</p>
+<ul>
+<li>
+<p>Download the already compiled <strong>CARLA package</strong> which can be found on this link.</p>
+</li>
+<li>
+<p><strong>Python Libraries:</strong> Install the required graphical and calculation dependencies by running the following command:</p>
+</li>
+</ul>
+<pre><code class="language-bash">  pip install pygame numpy matplotlib carla
+</code></pre>
+<p>Extract the CARLA package:</p>
+<pre><code class="language-bash">  tar -xvzf CARLA_0.9.15.2-2-gb23c01ae4-dirty.tar.gz
+</code></pre>
+<h3 id="2-launch-the-map-and-deepracer">2. Launch the Map and Deepracer!</h3>
+<pre><code class="language-bash">  cd CARLA_Shipping_0.9.15.2-2-gb23c01ae4-dirty/LinuxNoEditor
+</code></pre>
+<p>Launch the simulator: (Render off screen flag is used so that the window does not pop up)</p>
+<pre><code class="language-bash">  ./CarlaUE4.sh -RenderOffScreen
+</code></pre>
+<p>While the simulator is already running, you can launch the client. Use this <a href="sample_scripts/deepracer_manual_control.py">manual driving controler script</a> to test it out.</p>
+<pre><code class="language-bash">  python3 deepracer_manual_control.py
+</code></pre>
+<p>You will be able to drive the car using the WASD keys </p>
+<hr />
+<h3 id="each-individual-part-documentation-links">📄 Each individual part documentation links:</h3>
+<p>In case you want to explore or modify any part or asset, here are the links to the different tutorials. They explain the creation an implementation of the Deepracer and the creation and implementation of the Racetracks.</p>
 <p>How to create the <strong>racetracks</strong> and import them:</p>
 <ul>
 <li><a href="racetrackcreation/">Racetrack Creation</a></li>
