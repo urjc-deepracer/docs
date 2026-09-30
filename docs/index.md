@@ -6,7 +6,7 @@
 
 Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator (0.9.15 version).
 
-## Quick Start:
+# Quick Start:
 
 ### 1. Prerequisites and Dependencies Installation
 
@@ -45,7 +45,56 @@ You will be able to drive the car using the WASD keys
 
 ---
 
-### 📄 Each individual part documentation links:
+# Imitation learning
+
+Here is a quick setup guide to start testing the Deepracer driving by itself!
+
+* **Python Libraries:** Install the required graphical and calculation dependencies by running the following command:
+
+```bash
+   pip install opencv-python torch torchvision pillow
+```
+* **Environment settings** 
+
+1) Download the .pth file on [this link](https://github.com/urjc-deepracer/sim-carla-il-deepracer/releases/tag/1.0.0)
+
+2) Download these 3 files from [sample scripts](./sample_scripts/):
+- [run_autopilot_demo.py code](./sample_scripts/run_autopilot_demo.py)
+- [fancyvideocam.py code](./sample_scripts/fancyvideocam.py)
+- [pilotnet.py code](./sample_scripts/utils/pilotnet.py)
+
+3) All 4 downloaded files must be placed in the same directory 
+
+**Run the autopilot** 
+
+First, launch the simulator: (Render off screen flag is used so that the window does not pop up)
+
+```bash
+  ./CarlaUE4.sh -RenderOffScreen
+```
+
+**Example1**
+
+- Autopilot onboard camera:
+```bash
+python3 run_autopilot_demo.py
+```
+**Example2**
+
+- Top-down view code. Mode can be changed between trail (red trail that follows the Deepracer) and heatmap. Each camera belongs to a different track top view.
+Cameras available from 1 to 5 and from 8 to 13.
+
+```bash
+python3 fancyvideocam.py --mode trail --cam 4
+```
+
+--- 
+
+For further information, check the Imitation learning repository [here](https://github.com/urjc-deepracer/sim-carla-il-deepracer): https://github.com/urjc-deepracer/sim-carla-il-deepracer
+
+---
+
+### 📄 Each individual part documentation links
 
 In case you want to explore or modify any part or asset, here are the links to the different tutorials. They explain the creation an implementation of the Deepracer and the creation and implementation of the Racetracks.
 
