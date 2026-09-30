@@ -64,7 +64,7 @@ Here is a quick setup guide to start testing the Deepracer driving by itself!
 
 - [fancyvideocam.py code](./sample_scripts/fancyvideocam.py)
 
-- [pilotnet.py code](./sample_scripts/utils/pilotnet.py)
+- [pilotnet.py code](./sample_scripts/pilotnet.py)
 
 3) All 4 downloaded files must be placed in the same directory 
 
