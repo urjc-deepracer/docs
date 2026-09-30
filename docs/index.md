@@ -12,7 +12,7 @@ Here you will find step by step how to import and work with the AWS Deepracer in
 
 To make the script and the simulator work, you need to prepare your environment with the following elements:
 
-* Download the already compiled **CARLA package** which can be found on this link.
+* Download the already compiled **CARLA package** which can be found on this [link](https://drive.google.com/file/d/1J0SOiZaXrFiA-FcyDWagMZQWEipHdKY9/view?usp=sharing).
 
 * **Python Libraries:** Install the required graphical and calculation dependencies by running the following command:
 
