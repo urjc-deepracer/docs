@@ -97,50 +97,7 @@ For further information, check the Imitation learning repository [here](https://
 
 ---
 
-### 📄 Each individual part documentation links
+In case you want to explore or modify any process part or asset, here is the full guide with the links to the different tutorials. They explain the creation an implementation of the Deepracer and the creation and implementation of the Racetracks.
 
-In case you want to explore or modify any part or asset, here are the links to the different tutorials. They explain the creation an implementation of the Deepracer and the creation and implementation of the Racetracks.
-
-How to create the **racetracks** and import them:
-
-- [Racetrack Creation](racetrackcreation.md)
-
-![1](images/6.png)
-
-- [Include Racetrack in a CARLA Map](includeracetrackcarla.md)
-
-
-![1](images/trackcolors.png)
-
-How the **Deepracer** was modeled and how to import it:
-
-- [Create DeepRacer](createdeepracerinblender.md)
-
-![1](images/19.png)
-
-- [Import Deepracer to Carla](importdeepracercarla.md)
-
-<iframe width="560" height="315" 
-src="https://www.youtube.com/embed/6da4URc5QoI" 
-frameborder="0" allowfullscreen></iframe>
-
-
-How to use the *Carla client* to connect to the server:
-
-- [Client Usage](clientusage.md)
-
-How to **connect** a **remote** to drive the Deepracer (for testing or dataset generation)
-
-- [Remote control Deepracer](remotecontrol.md)
-
-
----
-
-In case you need help with the Unreal Engine 4 interface, here is a quick introduction guide:
-
-## Introduction to Carla, Unreal Engine 4 Interface (Español)
-
-<iframe width="560" height="315" 
-src="https://www.youtube.com/embed/Vuz5f-t5mV4" 
-frameborder="0" allowfullscreen></iframe>
+- [Each individual part documentation links](secondindx.md)
 
