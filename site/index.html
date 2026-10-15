@@ -399,75 +399,63 @@
 <p><strong>Welcome to the wiki!</strong></p>
 <p>Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator (0.9.15 version).</p>
 <h1 id="quick-start">Quick Start:</h1>
-<h3 id="1-prerequisites-and-dependencies-installation">1. Prerequisites and Dependencies Installation</h3>
-<p>To make the script and the simulator work, you need to prepare your environment with the following elements:</p>
-<ul>
-<li>
-<p>Download the already compiled <strong>CARLA package</strong> which can be found on this <a href="https://drive.google.com/file/d/1J0SOiZaXrFiA-FcyDWagMZQWEipHdKY9/view?usp=sharing">link</a>.</p>
-</li>
-<li>
-<p><strong>Python Libraries:</strong> Install the required graphical and calculation dependencies by running the following command:</p>
-</li>
-</ul>
-<pre><code class="language-bash">  pip install pygame numpy matplotlib carla
+<h1 id="1-clone-sample-project">1. Clone sample project</h1>
+<pre><code class="language-bash">git clone https://github.com/urjc-deepracer/carla-deepracer-quickstart.git
+
+cd carla-deepracer-quickstart
 </code></pre>
-<p>Extract the CARLA package:</p>
-<pre><code class="language-bash">  tar -xvzf CARLA_0.9.15.2-2-gb23c01ae4-dirty.tar.gz
+<h1 id="2-create-and-activate-virtual-environment">2 Create and activate virtual environment</h1>
+<pre><code class="language-bash">python3 -m venv deepracer_carla
+source deepracer_carla/bin/activate
 </code></pre>
-<h3 id="2-launch-the-map-and-deepracer">2. Launch the Map and Deepracer!</h3>
-<pre><code class="language-bash">  cd CARLA_Shipping_0.9.15.2-2-gb23c01ae4-dirty/LinuxNoEditor
+<h3 id="22-install-dependencies">2.2 Install dependencies</h3>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<h3 id="23-download-weight-binary-file">2.3 Download weight binary file</h3>
+<pre><code class="language-bash">wget -O pilot_net_model_best_123.pth &quot;https://github.com/urjc-deepracer/sim-carla-il-deepracer/releases/download/1.0.0/pilot_net_model_best_123.pth&quot;
+</code></pre>
+<h1 id="3-download-extract-carla-simulator">3. Download &amp; Extract CARLA Simulator</h1>
+<pre><code class="language-bash">chmod +x install_carla.sh
+./install_carla.sh
+</code></pre>
+<p><em>Note: (You can also manually d ownload the pre-compiled CARLA package (v0.9.15) from <a href="https://drive.google.com/file/d/1J0SOiZaXrFiA-FcyDWagMZQWEipHdKY9/view?usp=sharing">this Google Drive link</a> by yourself)</em></p>
+<h1 id="4-launch-the-simulator">4. Launch the Simulator</h1>
+<p>Navigate to where the pre-compiled CARLA package was extracted, then navigate to:</p>
+<pre><code class="language-bash">  cd ./carla_server
 </code></pre>
 <p>Launch the simulator: (Render off screen flag is used so that the window does not pop up)</p>
 <pre><code class="language-bash">  ./CarlaUE4.sh -RenderOffScreen
 </code></pre>
-<p>While the simulator is already running, you can launch the client. Use this <a href="sample_scripts/deepracer_manual_control.py">manual driving controler script</a> to test it out.</p>
-<pre><code class="language-bash">  python3 deepracer_manual_control.py
+<h1 id="5-client-script-examples">5. Client Script Examples</h1>
+<p>Open a <strong>new terminal</strong> window, navigate to the repository, and activate your virtual environment:</p>
+<pre><code class="language-bash">cd carla-deepracer-quickstart
+source deepracer_carla/bin/activate
 </code></pre>
-<p>You will be able to drive the car using the WASD keys </p>
+<p><em>Note: Make sure your virtual environment is activated (source deepracer_carla/bin/activate) before running any script.</em></p>
+<h2 id="manual-control">Manual control</h2>
+<pre><code class="language-bash">  python3 deepracer_manual_control.py --cam 4
+</code></pre>
+<ul>
+<li>--cam: Select top-down camera track view (Available: 1-5 and 8-13).</li>
+</ul>
+<p>You will be able to drive the car using the W,A,S keys:
+- W: throttle 
+- A: left steering
+- D: right steering</p>
+<h2 id="imitation-learning">Imitation learning</h2>
+<p>Test the Deepracer driving by itself!</p>
+<pre><code class="language-bash">python3 videocam.py --mode trail --cam 4
+</code></pre>
+<ul>
+<li>
+<p>--mode: Select visualization mode (trail for trajectory line or heatmap).</p>
+</li>
+<li>
+<p>--cam: Select top-down camera track view (Available: 1-5 and 8-13).</p>
+</li>
+</ul>
+<p>press 'q'  to exit all windows</p>
 <hr />
-<h1 id="imitation-learning">Imitation learning</h1>
-<p>Here is a quick setup guide to start testing the Deepracer driving by itself!</p>
-<ul>
-<li><strong>Python Libraries:</strong> Install the required graphical and calculation dependencies by running the following command:</li>
-</ul>
-<pre><code class="language-bash">   pip install opencv-python torch torchvision pillow
-</code></pre>
-<ul>
-<li><strong>Environment settings</strong> </li>
-</ul>
-<p>1) Download the .pth file on <a href="https://github.com/urjc-deepracer/sim-carla-il-deepracer/releases/tag/1.0.0">this link</a></p>
-<p>2) Download these 3 files from <a href="https://github.com/urjc-deepracer/docs/tree/main/docs/sample_scripts">sample scripts</a>:</p>
-<ul>
-<li>
-<p><a href="sample_scripts/run_autopilot_demo.py">run_autopilot_demo.py code</a></p>
-</li>
-<li>
-<p><a href="sample_scripts/fancyvideocam.py">fancyvideocam.py code</a></p>
-</li>
-<li>
-<p><a href="sample_scripts/pilotnet.py">pilotnet.py code</a></p>
-</li>
-</ul>
-<p>3) All 4 downloaded files must be placed in the same directory </p>
-<p><strong>Run the autopilot</strong> </p>
-<p>First, launch the simulator: (Render off screen flag is used so that the window does not pop up)</p>
-<pre><code class="language-bash">  ./CarlaUE4.sh -RenderOffScreen
-</code></pre>
-<p><strong>Example1</strong></p>
-<ul>
-<li>Autopilot onboard camera:</li>
-</ul>
-<pre><code class="language-bash">python3 run_autopilot_demo.py
-</code></pre>
-<p><strong>Example2</strong></p>
-<ul>
-<li>Top-down view code. Mode can be changed between trail (red trail that follows the Deepracer) and heatmap. Each camera belongs to a different track top view.
-Cameras available from 1 to 5 and from 8 to 13.</li>
-</ul>
-<pre><code class="language-bash">python3 fancyvideocam.py --mode trail --cam 4
-</code></pre>
-<hr />
-<p>For further information, check the Imitation learning repository <a href="https://github.com/urjc-deepracer/sim-carla-il-deepracer">here</a>: https://github.com/urjc-deepracer/sim-carla-il-deepracer</p>
 <hr />
 <p>In case you want to explore or modify any process part or asset, here is the full guide with the links to the different tutorials. They explain the creation an implementation of the Deepracer and the creation and implementation of the Racetracks.</p>
 <ul>

@@ -1,12 +1,19 @@
 # Deepracer Carla Simulator wiki
 
-![1](images/dr.jpg)
+![1](images/Deepracer_lab.png)
 
 **Welcome to the wiki!**
 
 Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator (0.9.15 version).
 
 # Quick Start:
+
+## Prerequisites
+
+* **Operating System:** Ubuntu 20.04 / 22.04 / 24.04
+* **Python Version:** **Python 3.10** *(CARLA 0.9.15 does not support Python 3.12 or higher)*.
+
+---
 
 # 1. Clone sample project
 ```bash
@@ -18,7 +25,7 @@ cd carla-deepracer-quickstart
 # 2 Create and activate virtual environment
 
 ```bash
-python3 -m venv deepracer_carla
+python3.10 -m venv deepracer_carla
 source deepracer_carla/bin/activate
 ```
 
@@ -71,7 +78,7 @@ source deepracer_carla/bin/activate
 ## Manual control
 
 ```bash
-  python3 deepracer_manual_control.py --cam 4
+  python3 deepracer_manual_control.py --track 4
 ```
 
 - --cam: Select top-down camera track view (Available: 1-5 and 8-13).
@@ -86,7 +93,7 @@ You will be able to drive the car using the W,A,S keys:
 Test the Deepracer driving by itself!
 
 ```bash
-python3 videocam.py --mode trail --cam 4
+python3 videocam.py --mode trail --track 4
 ```
 
 - --mode: Select visualization mode (trail for trajectory line or heatmap).
