@@ -395,17 +395,23 @@
 
 
 <h1 id="deepracer-carla-simulator-wiki">Deepracer Carla Simulator wiki</h1>
-<p><img alt="1" src="images/dr.jpg" /></p>
+<p><img alt="1" src="images/Deepracer_lab.png" /></p>
 <p><strong>Welcome to the wiki!</strong></p>
 <p>Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator (0.9.15 version).</p>
 <h1 id="quick-start">Quick Start:</h1>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li><strong>Operating System:</strong> Ubuntu 20.04 / 22.04 / 24.04</li>
+<li><strong>Python Version:</strong> <strong>Python 3.10</strong> <em>(CARLA 0.9.15 does not support Python 3.12 or higher)</em>.</li>
+</ul>
+<hr />
 <h1 id="1-clone-sample-project">1. Clone sample project</h1>
 <pre><code class="language-bash">git clone https://github.com/urjc-deepracer/carla-deepracer-quickstart.git
 
 cd carla-deepracer-quickstart
 </code></pre>
 <h1 id="2-create-and-activate-virtual-environment">2 Create and activate virtual environment</h1>
-<pre><code class="language-bash">python3 -m venv deepracer_carla
+<pre><code class="language-bash">python3.10 -m venv deepracer_carla
 source deepracer_carla/bin/activate
 </code></pre>
 <h3 id="22-install-dependencies">2.2 Install dependencies</h3>
@@ -433,7 +439,7 @@ source deepracer_carla/bin/activate
 </code></pre>
 <p><em>Note: Make sure your virtual environment is activated (source deepracer_carla/bin/activate) before running any script.</em></p>
 <h2 id="manual-control">Manual control</h2>
-<pre><code class="language-bash">  python3 deepracer_manual_control.py --cam 4
+<pre><code class="language-bash">  python3 deepracer_manual_control.py --track 4
 </code></pre>
 <ul>
 <li>--cam: Select top-down camera track view (Available: 1-5 and 8-13).</li>
@@ -444,7 +450,7 @@ source deepracer_carla/bin/activate
 - D: right steering</p>
 <h2 id="imitation-learning">Imitation learning</h2>
 <p>Test the Deepracer driving by itself!</p>
-<pre><code class="language-bash">python3 videocam.py --mode trail --cam 4
+<pre><code class="language-bash">python3 videocam.py --mode trail --track 4
 </code></pre>
 <ul>
 <li>
