@@ -81,7 +81,7 @@ source deepracer_carla/bin/activate
   python3 deepracer_manual_control.py --track 4
 ```
 
-- --cam: Select top-down camera track view (Available: 1-5 and 8-13).
+- --track: Select top-down camera track view (Available: 1-5 and 8-13).
 
 You will be able to drive the car using the W,A,S keys:
 - W: throttle 
@@ -93,12 +93,12 @@ You will be able to drive the car using the W,A,S keys:
 Test the Deepracer driving by itself!
 
 ```bash
-python3 videocam.py --mode trail --track 4
+python3 deepracer_il.py --mode trail --track 4
 ```
 
 - --mode: Select visualization mode (trail for trajectory line or heatmap).
 
-- --cam: Select top-down camera track view (Available: 1-5 and 8-13).
+- --track: Select top-down camera track view (Available: 1-5 and 8-13).
 
 press 'q'  to exit all windows
 
