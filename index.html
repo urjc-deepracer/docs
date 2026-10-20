@@ -442,7 +442,7 @@ source deepracer_carla/bin/activate
 <pre><code class="language-bash">  python3 deepracer_manual_control.py --track 4
 </code></pre>
 <ul>
-<li>--cam: Select top-down camera track view (Available: 1-5 and 8-13).</li>
+<li>--track: Select top-down camera track view (Available: 1-5 and 8-13).</li>
 </ul>
 <p>You will be able to drive the car using the W,A,S keys:
 - W: throttle 
@@ -450,14 +450,14 @@ source deepracer_carla/bin/activate
 - D: right steering</p>
 <h2 id="imitation-learning">Imitation learning</h2>
 <p>Test the Deepracer driving by itself!</p>
-<pre><code class="language-bash">python3 videocam.py --mode trail --track 4
+<pre><code class="language-bash">python3 deepracer_il.py --mode trail --track 4
 </code></pre>
 <ul>
 <li>
 <p>--mode: Select visualization mode (trail for trajectory line or heatmap).</p>
 </li>
 <li>
-<p>--cam: Select top-down camera track view (Available: 1-5 and 8-13).</p>
+<p>--track: Select top-down camera track view (Available: 1-5 and 8-13).</p>
 </li>
 </ul>
 <p>press 'q'  to exit all windows</p>
