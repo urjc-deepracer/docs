@@ -6,6 +6,9 @@
 
 Here you will find step by step how to import and work with the AWS Deepracer in Carla Simulator (0.9.15 version).
 
+<video src="https://github.com/user-attachments/assets/ac1ac194-3182-4fd1-9571-7439ee5bd0df" width="100%" controls></video>
+
+
 # Quick Start:
 
 ## Prerequisites
